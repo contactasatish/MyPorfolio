@@ -237,6 +237,11 @@ logging.basicConfig(
 )
 logger = logging.getLogger(__name__)
 
+@app.on_event("startup")
+async def startup_event():
+    await initialize_admin()
+    logger.info("Portfolio API started successfully")
+
 @app.on_event("shutdown")
 async def shutdown_db_client():
     client.close()
