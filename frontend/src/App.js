@@ -37,11 +37,23 @@ function App() {
   useEffect(() => {
     helloWorldApi();
     
+    // Load portfolio data on startup
+    fetchPortfolioData();
+    
     // Check URL for admin panel
     if (window.location.hash === '#admin') {
       setCurrentView('admin');
     }
   }, []);
+
+  const fetchPortfolioData = async () => {
+    try {
+      const response = await axios.get(`${API}/portfolio`);
+      setPortfolioData(response.data);
+    } catch (error) {
+      console.error('Error fetching portfolio data:', error);
+    }
+  };
 
   const handleDesignSelection = (designId, data) => {
     setSelectedDesign(designId);
