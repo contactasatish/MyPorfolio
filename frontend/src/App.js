@@ -77,8 +77,20 @@ function App() {
   }
 
   // Portfolio View
-  if (currentView === 'portfolio' && selectedDesign && portfolioData) {
+  if (currentView === 'portfolio' && selectedDesign) {
     const SelectedPortfolioComponent = designComponents[selectedDesign];
+    
+    // Show loading if no portfolio data yet
+    if (!portfolioData) {
+      return (
+        <div className="min-h-screen flex items-center justify-center bg-slate-50">
+          <div className="text-center">
+            <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-blue-600 mx-auto mb-4"></div>
+            <p className="text-slate-600">Loading your portfolio...</p>
+          </div>
+        </div>
+      );
+    }
     
     return (
       <div className="relative">
