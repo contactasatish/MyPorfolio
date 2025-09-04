@@ -14,9 +14,9 @@ const BACKEND_URL = process.env.REACT_APP_BACKEND_URL;
 const API = `${BACKEND_URL}/api`;
 
 function App() {
-  const [selectedDesign, setSelectedDesign] = useState(null);
+  const [selectedDesign, setSelectedDesign] = useState('option4');
   const [portfolioData, setPortfolioData] = useState(null);
-  const [currentView, setCurrentView] = useState('showcase'); // 'showcase', 'portfolio', 'admin'
+  const [currentView, setCurrentView] = useState('portfolio'); // 'portfolio' to show Option 4 directly
 
   const designComponents = {
     'option1': MinimalistPortfolio,
