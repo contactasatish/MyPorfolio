@@ -48,10 +48,34 @@ function App() {
 
   const fetchPortfolioData = async () => {
     try {
+      console.log('Fetching portfolio data...');
       const response = await axios.get(`${API}/portfolio`);
+      console.log('Portfolio data received:', response.data);
       setPortfolioData(response.data);
     } catch (error) {
       console.error('Error fetching portfolio data:', error);
+      // Set fallback data if API fails
+      setPortfolioData({
+        personal: {
+          name: "Satish Kumar",
+          title: "IT Analyst / Product Manager / Product Owner",
+          tagline: "SaaS | Machine Learning | Procurement | Cross-Functional Leadership | Driving $10M+ Digital Transformation Initiatives",
+          location: "Dallas–Fort Worth, TX (Remote/Hybrid, open to 25% travel)",
+          email: "contactasatish@gmail.com",
+          phone: "347-341-7341",
+          linkedin: "linkedin.com/in/asatishkr"
+        },
+        about: {
+          title: "About Me",
+          description: "Dynamic IT Analyst and Product Manager with 15+ years of experience leading digital transformation initiatives across SaaS, travel, telecom, and waste management sectors."
+        },
+        skills: [
+          { category: "Product Management", items: ["Roadmaps", "Agile/Scrum", "Product Lifecycle"] },
+          { category: "Technical Expertise", items: ["Salesforce", "GCP", "Python", "SQL"] }
+        ],
+        experience: [],
+        projects: []
+      });
     }
   };
 
