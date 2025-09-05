@@ -110,6 +110,49 @@ const AdminPanel = () => {
     }
   };
 
+  const handleUpdateCredentials = async () => {
+    if (isGitHubPages) {
+      alert('Credential updates are not available on GitHub Pages. Please use the full-stack version.');
+      return;
+    }
+
+    if (!newCredentials.username || !newCredentials.password) {
+      alert('Please fill in all fields');
+      return;
+    }
+
+    if (newCredentials.password !== newCredentials.confirmPassword) {
+      alert('Passwords do not match');
+      return;
+    }
+
+    if (newCredentials.password.length < 6) {
+      alert('Password must be at least 6 characters long');
+      return;
+    }
+
+    try {
+      const response = await axios.put(`${API}/admin/credentials`, {
+        username: newCredentials.username,
+        password: newCredentials.password
+      }, {
+        headers: { Authorization: `Bearer ${token}` }
+      });
+
+      if (response.status === 200) {
+        alert('Credentials updated successfully! Please log in again.');
+        setIsAuthenticated(false);
+        setToken('');
+        localStorage.removeItem('adminToken');
+        setNewCredentials({ username: '', password: '', confirmPassword: '' });
+        setShowCredentialsManager(false);
+      }
+    } catch (error) {
+      alert('Error updating credentials. This feature may not be available in the current setup.');
+      console.error('Error updating credentials:', error);
+    }
+  };
+
   const uploadPhoto = async (event) => {
     const file = event.target.files[0];
     if (!file) return;
