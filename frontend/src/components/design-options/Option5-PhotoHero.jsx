@@ -5,6 +5,37 @@ import { ArrowRight, MapPin, Mail, Phone, Linkedin, Calendar, Building, External
 const PhotoHeroPortfolio = ({ portfolioData }) => {
   const { personal, about, skills, experience, projects } = portfolioData;
 
+  // Scroll and action functions
+  const scrollToSection = (sectionId) => {
+    const element = document.querySelector(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
+  const handleHireMe = () => {
+    window.open(`mailto:${personal.email}?subject=Opportunity: Senior IT Product Manager Role&body=Hi Satish,%0D%0A%0D%0AI would like to discuss a potential opportunity with you.%0D%0A%0D%0ABest regards`, '_blank');
+  };
+
+  const handleDownloadResume = () => {
+    // Create a temporary link to download resume
+    const link = document.createElement('a');
+    link.href = '/api/resume/download';
+    link.download = 'Satish_Kumar_Resume.pdf';
+    link.target = '_blank';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
+
+  const handleProjectsView = () => {
+    scrollToSection('#projects');
+  };
+
+  const handleContactView = () => {
+    scrollToSection('#contact');
+  };
+
   // Counter animation hook
   const useCountUp = (end, duration = 2000, trigger = true) => {
     const [count, setCount] = useState(0);
