@@ -346,8 +346,8 @@ function App() {
     
     return (
       <div className="relative">
-        {/* Back to Design Selection Button - Hide for GitHub Pages */}
-        {(!process.env.REACT_APP_USE_STATIC_DATA && process.env.NODE_ENV === 'development') && (
+        {/* Back to Design Selection Button - Hide for production/GitHub Pages */}
+        {false && (
           <button
             onClick={handleBackToShowcase}
             className="fixed top-4 left-4 z-50 bg-white text-slate-900 px-4 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 font-medium"
