@@ -600,23 +600,23 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
           </div>
 
           {/* Travel Industry Impact Summary */}
-          <div className="mt-16 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-2xl p-8">
+          <div ref={travelImpactRef} className="mt-16 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-2xl p-8">
             <h3 className="text-2xl font-bold mb-6 text-center">Travel Industry Impact</h3>
             <div className="grid md:grid-cols-4 gap-6 text-center">
               <div>
-                <div className="text-3xl font-bold mb-2">38</div>
+                <div className="text-3xl font-bold mb-2">{ndcIntegrations}</div>
                 <div className="text-blue-100">NDC Airline Integrations</div>
               </div>
               <div>
-                <div className="text-3xl font-bold mb-2">30M+</div>
+                <div className="text-3xl font-bold mb-2">{incrementalBookings}M+</div>
                 <div className="text-blue-100">Incremental Bookings</div>
               </div>
               <div>
-                <div className="text-3xl font-bold mb-2">20%</div>
+                <div className="text-3xl font-bold mb-2">{workflowImprovement}%</div>
                 <div className="text-blue-100">Workflow Improvement</div>
               </div>
               <div>
-                <div className="text-3xl font-bold mb-2">$1000s</div>
+                <div className="text-3xl font-bold mb-2">${Math.floor(annualSavings/1000)}K+</div>
                 <div className="text-blue-100">Annual Customer Savings</div>
               </div>
             </div>
