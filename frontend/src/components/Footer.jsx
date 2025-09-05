@@ -98,15 +98,8 @@ const Footer = () => {
         {/* Divider */}
         <div className="border-t border-slate-800 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-            <div className="flex items-center space-x-6 text-sm text-slate-400">
-              <span>© {currentYear} {personal.name}. All rights reserved.</span>
-              <a 
-                href="#admin" 
-                className="text-slate-500 hover:text-slate-300 transition-colors text-xs opacity-50 hover:opacity-100"
-                title="Administrative Access"
-              >
-                Admin
-              </a>
+            <div className="text-sm text-slate-400">
+              © {currentYear} {personal.name}. All rights reserved.
             </div>
             
             <div className="flex items-center text-sm text-slate-400">
