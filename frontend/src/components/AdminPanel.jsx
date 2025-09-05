@@ -22,8 +22,14 @@ const AdminPanel = () => {
   const [contactMessages, setContactMessages] = useState([]);
   const [dashboardLoading, setDashboardLoading] = useState(true);
 
-  // Check if we're on GitHub Pages (no backend)
-  const isGitHubPages = process.env.REACT_APP_USE_STATIC_DATA === 'true' || !BACKEND_URL || BACKEND_URL === '' || process.env.NODE_ENV === 'production';
+  // Check if we're on GitHub Pages (no backend) - enhanced detection
+  const isGitHubPages = 
+    process.env.REACT_APP_USE_STATIC_DATA === 'true' || 
+    !BACKEND_URL || 
+    BACKEND_URL === '' || 
+    BACKEND_URL === 'undefined' ||
+    window.location.hostname.includes('github.io') ||
+    (process.env.NODE_ENV === 'production' && !BACKEND_URL);
 
   useEffect(() => {
     if (token) {
