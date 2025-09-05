@@ -488,19 +488,19 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
           </div>
 
           {/* Compliance Metrics */}
-          <div className="mt-12 bg-gradient-to-r from-green-500 to-blue-600 text-white rounded-2xl p-8 text-center">
+          <div ref={complianceRef} className="mt-12 bg-gradient-to-r from-green-500 to-blue-600 text-white rounded-2xl p-8 text-center">
             <h3 className="text-2xl font-bold mb-6">Compliance Track Record</h3>
             <div className="grid md:grid-cols-3 gap-8">
               <div>
-                <div className="text-4xl font-bold mb-2">100%</div>
+                <div className="text-4xl font-bold mb-2">{complianceRate}%</div>
                 <div className="text-green-100">RCRA Compliance Rate</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-2">500+</div>
+                <div className="text-4xl font-bold mb-2">{facilitiesCount}+</div>
                 <div className="text-green-100">Regulated Facilities</div>
               </div>
               <div>
-                <div className="text-4xl font-bold mb-2">98%</div>
+                <div className="text-4xl font-bold mb-2">{satisfactionRate}%</div>
                 <div className="text-green-100">Stakeholder Satisfaction</div>
               </div>
             </div>
