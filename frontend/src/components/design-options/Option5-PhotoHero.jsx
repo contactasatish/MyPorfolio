@@ -141,7 +141,10 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
               </button>
             ))}
           </nav>
-          <button className="px-6 py-2 border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition-all duration-300 font-medium">
+          <button 
+            onClick={handleHireMe}
+            className="px-6 py-2 border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition-all duration-300 font-medium rounded-lg hover:scale-105"
+          >
             Let's chat
           </button>
         </div>
