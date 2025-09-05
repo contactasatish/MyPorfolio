@@ -1,7 +1,7 @@
-// Mock data for Satish Kumar's Portfolio
+// Mock data for Satish's Portfolio
 export const portfolioData = {
   personal: {
-    name: "Satish Kumar",
+    name: "Satish",
     title: "IT Analyst / Product Manager / Product Owner",
     tagline: "SaaS | Machine Learning | Procurement | Cross-Functional Leadership | Driving $10M+ Digital Transformation Initiatives",
     location: "Dallas–Fort Worth, TX (Remote/Hybrid, open to 25% travel)",
