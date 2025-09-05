@@ -102,7 +102,51 @@
 # Testing Data - Main Agent and testing sub agent both should log testing data below this section
 #====================================================================================================
 
-user_problem_statement: "Test the comprehensive portfolio backend API with core endpoints including portfolio data, contact forms, analytics tracking, admin authentication, and protected routes"
+user_problem_statement: "Missing travel solutions under the feature projects section. It looks like, at some point during the changes, that part was deleted. Please check previous iterations and add it back"
+
+backend:
+  - task: "Add Travel/Airline Solutions Project to Backend Mock Data"
+    implemented: true
+    working: "NA"
+    file: "/app/backend/data/mock.py"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Added Travel/Airline Solutions Implementation project to backend mock data with NDC/GDS metrics: 38 live NDC airline integrations, 30M+ incremental bookings, 5-20% airfare savings. Project has id=4, category='Aviation Technology' with proper image and technologies array."
+
+frontend:
+  - task: "Update Projects Component for Aviation Technology Category"
+    implemented: true
+    working: "NA"
+    file: "/app/frontend/src/components/Projects.jsx"
+    stuck_count: 0
+    priority: "high"
+    needs_retesting: true
+    status_history:
+        - working: "NA"
+          agent: "main"
+          comment: "Added Plane icon for Aviation Technology category with orange color. Updated project metrics section to display Travel/Airline Solutions metrics including 38 NDC integrations, 30M+ incremental bookings, and 5-20% airfare savings in expanded metrics layout."
+
+metadata:
+  created_by: "main_agent"
+  version: "2.0"
+  test_sequence: 1
+  run_ui: false
+
+test_plan:
+  current_focus:
+    - "Add Travel/Airline Solutions Project to Backend Mock Data"
+    - "Update Projects Component for Aviation Technology Category"
+  stuck_tasks: []
+  test_all: false
+  test_priority: "high_first"
+
+agent_communication:
+    - agent: "main"
+      message: "User reported missing Travel/Airline Solutions project from Featured Projects section. Found the project data in App.js fallback and resume_generator.py but missing from backend/data/mock.py. Added the project with all NDC/GDS metrics and updated frontend Projects component to handle Aviation Technology category with proper icon and expanded metrics display. Backend and frontend changes need testing to ensure Travel Solutions project appears correctly in the portfolio."
 
 backend:
   - task: "Portfolio Data API"
