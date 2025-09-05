@@ -168,10 +168,16 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
               </div>
               
               <div className="flex flex-wrap gap-4">
-                <button className="px-8 py-4 bg-red-500 text-white hover:bg-red-600 transition-colors font-semibold rounded-lg">
+                <button 
+                  onClick={handleHireMe}
+                  className="px-8 py-4 bg-red-500 text-white hover:bg-red-600 transition-all duration-300 hover:scale-105 font-semibold rounded-lg shadow-lg hover:shadow-xl"
+                >
                   Hire Me
                 </button>
-                <button className="px-8 py-4 border-2 border-gray-300 text-gray-700 hover:border-gray-400 transition-colors font-semibold rounded-lg flex items-center">
+                <button 
+                  onClick={handleProjectsView}
+                  className="px-8 py-4 border-2 border-gray-300 text-gray-700 hover:border-gray-400 hover:bg-gray-50 transition-all duration-300 hover:scale-105 font-semibold rounded-lg flex items-center"
+                >
                   Projects <ArrowRight size={20} className="ml-2" />
                 </button>
               </div>
