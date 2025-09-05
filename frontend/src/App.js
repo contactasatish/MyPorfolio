@@ -346,13 +346,15 @@ function App() {
     
     return (
       <div className="relative">
-        {/* Back to Design Selection Button */}
-        <button
-          onClick={handleBackToShowcase}
-          className="fixed top-4 left-4 z-50 bg-white text-slate-900 px-4 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 font-medium"
-        >
-          ← Back to Design Options
-        </button>
+        {/* Back to Design Selection Button - Only show in development */}
+        {process.env.NODE_ENV === 'development' && (
+          <button
+            onClick={handleBackToShowcase}
+            className="fixed top-4 left-4 z-50 bg-white text-slate-900 px-4 py-2 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 border border-gray-200 font-medium"
+          >
+            ← Back to Design Options
+          </button>
+        )}
         
         {/* Admin Panel Access */}
         <button
