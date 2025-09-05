@@ -18,7 +18,16 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
   };
 
   const handleDownloadResume = () => {
-    // Create a temporary link to download resume
+    // Check if we're in GitHub Pages deployment (no backend available)
+    const isGitHubPages = process.env.REACT_APP_USE_STATIC_DATA === 'true' || !process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL === '';
+    
+    if (isGitHubPages) {
+      // For GitHub Pages, show an alert or redirect to LinkedIn
+      alert('Resume download is available on the full-stack version. Please contact me via email or LinkedIn for my latest resume.');
+      return;
+    }
+
+    // Create a temporary link to download resume from backend
     const link = document.createElement('a');
     link.href = '/api/resume/download';
     link.download = 'Satish_Kumar_Resume.pdf';
