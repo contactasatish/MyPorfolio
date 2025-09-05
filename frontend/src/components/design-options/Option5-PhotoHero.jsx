@@ -226,32 +226,52 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
       <section className="py-16 bg-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid md:grid-cols-2 gap-12">
-            <div>
+            <div ref={projectStatsRef}>
               <h2 className="text-3xl font-bold mb-8">Project Statistics 2024</h2>
               
               <div className="space-y-6">
                 <div className="flex justify-between items-center">
                   <span className="text-gray-300">Digital Transformation</span>
-                  <span className="text-2xl font-bold">85</span>
+                  <span className="text-2xl font-bold">{digitalTransform}</span>
                 </div>
                 <div className="w-full bg-gray-700 rounded-full h-2">
-                  <div className="bg-white rounded-full h-2 w-[85%]"></div>
+                  <div 
+                    className="bg-white rounded-full h-2 transition-all duration-2000 ease-out" 
+                    style={{ width: `${digitalTransform}%` }}
+                  ></div>
                 </div>
                 
                 <div className="flex justify-between items-center">
                   <span className="text-gray-300">SaaS Implementation</span>
-                  <span className="text-2xl font-bold">92</span>
+                  <span className="text-2xl font-bold">{saasImplementation}</span>
                 </div>
                 <div className="w-full bg-gray-700 rounded-full h-2">
-                  <div className="bg-white rounded-full h-2 w-[92%]"></div>
+                  <div 
+                    className="bg-white rounded-full h-2 transition-all duration-2200 ease-out" 
+                    style={{ width: `${saasImplementation}%` }}
+                  ></div>
                 </div>
                 
                 <div className="flex justify-between items-center">
                   <span className="text-gray-300">Data Analytics</span>
-                  <span className="text-2xl font-bold">78</span>
+                  <span className="text-2xl font-bold">{dataAnalytics}</span>
                 </div>
                 <div className="w-full bg-gray-700 rounded-full h-2">
-                  <div className="bg-white rounded-full h-2 w-[78%]"></div>
+                  <div 
+                    className="bg-white rounded-full h-2 transition-all duration-1800 ease-out" 
+                    style={{ width: `${dataAnalytics}%` }}
+                  ></div>
+                </div>
+
+                <div className="flex justify-between items-center">
+                  <span className="text-gray-300">Product Deliveries</span>
+                  <span className="text-2xl font-bold">{productDeliveries}+</span>
+                </div>
+                <div className="w-full bg-gray-700 rounded-full h-2">
+                  <div 
+                    className="bg-yellow-400 rounded-full h-2 transition-all duration-2300 ease-out" 
+                    style={{ width: `${Math.min(productDeliveries, 100)}%` }}
+                  ></div>
                 </div>
               </div>
               
@@ -262,7 +282,7 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
             
             <div className="space-y-8">
               <div className="bg-gradient-to-r from-purple-600 to-red-600 rounded-2xl p-8 text-center">
-                <div className="text-4xl font-bold mb-2">15+</div>
+                <div className="text-4xl font-bold mb-2">{workingYears}+</div>
                 <div className="text-lg">Years</div>
                 <div className="text-sm opacity-90">Working Experience</div>
               </div>
