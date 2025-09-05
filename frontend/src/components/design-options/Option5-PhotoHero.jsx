@@ -181,17 +181,30 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
                 {/* Professional Photo - Satish's actual photo */}
                 <div className="relative z-10 text-center">
                   <div className="w-80 h-96 rounded-2xl mx-auto overflow-hidden mb-6 shadow-2xl border-4 border-white/20">
-                    {/* Your actual professional photo will go here */}
+                    {/* Your actual professional photo */}
                     <img 
-                      src="/api/placeholder/320/384" 
+                      src="/images/satish-professional.jpg" 
                       alt="Satish - IT Product Manager"
                       className="w-full h-full object-cover object-center"
                       style={{
-                        // Placeholder for your actual photo
-                        // Replace src above with your actual photo URL
-                        filter: 'brightness(1.1) contrast(1.1)'
+                        // Professional photo styling
+                        filter: 'brightness(1.05) contrast(1.1) saturate(1.1)'
+                      }}
+                      onError={(e) => {
+                        // Fallback if image not found
+                        e.target.style.display = 'none';
+                        e.target.nextSibling.style.display = 'flex';
                       }}
                     />
+                    {/* Fallback placeholder */}
+                    <div className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white" style={{display: 'none'}}>
+                      <div className="text-center">
+                        <div className="text-4xl mb-2">👨‍💼</div>
+                        <div className="text-lg font-bold">Satish</div>
+                        <div className="text-sm opacity-80">IT Product Manager</div>
+                        <div className="text-xs mt-2 opacity-60">Add your photo to<br/>/public/images/satish-professional.jpg</div>
+                      </div>
+                    </div>
                     {/* Professional overlay */}
                     <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
                     <div className="absolute bottom-4 left-4 right-4 text-white">
