@@ -151,7 +151,7 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
       </header>
 
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
+      <section id="hero" className="py-20 bg-gradient-to-br from-gray-50 to-red-50">
         <div className="max-w-7xl mx-auto px-6">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             {/* Left Content */}
