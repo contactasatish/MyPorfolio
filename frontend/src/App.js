@@ -7,6 +7,7 @@ import MinimalistPortfolio from "./components/design-options/Option1-Minimalist"
 import CreativeTechPortfolio from "./components/design-options/Option2-CreativeTech";
 import ExecutivePremiumPortfolio from "./components/design-options/Option3-Executive";
 import ModernPortfolio from "./components/design-options/Option4-Modern";
+import PhotoHeroPortfolio from "./components/design-options/Option5-PhotoHero";
 import DesignShowcase from "./components/DesignShowcase";
 import AdminPanel from "./components/AdminPanel";
 
