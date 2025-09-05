@@ -1,6 +1,6 @@
 import React from 'react';
 import { portfolioData } from '../data/mock';
-import { ExternalLink, Code, BarChart3, Shield } from 'lucide-react';
+import { ExternalLink, Code, BarChart3, Shield, Plane } from 'lucide-react';
 
 const Projects = () => {
   const { projects } = portfolioData;
