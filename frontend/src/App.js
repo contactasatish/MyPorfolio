@@ -23,7 +23,8 @@ function App() {
     'option1': MinimalistPortfolio,
     'option2': CreativeTechPortfolio, 
     'option3': ExecutivePremiumPortfolio,
-    'option4': ModernPortfolio
+    'option4': ModernPortfolio,
+    'option5': PhotoHeroPortfolio
   };
 
   const helloWorldApi = async () => {
