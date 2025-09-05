@@ -250,7 +250,7 @@ I'll be happy to send you my detailed resume directly!`;
                   <div className="w-80 h-96 rounded-2xl mx-auto overflow-hidden mb-6 shadow-2xl border-4 border-white/20">
                     {/* Your actual professional photo */}
                     <img 
-                      src={`${process.env.PUBLIC_URL}/images/satish-professional.jpg`}
+                      src={`${process.env.PUBLIC_URL || ''}/images/satish-professional.jpg`}
                       alt="Satish - IT Product Manager"
                       className="w-full h-full object-cover object-center"
                       style={{
@@ -261,11 +261,16 @@ I'll be happy to send you my detailed resume directly!`;
                       onLoad={() => console.log('Photo loaded successfully')}
                       onError={(e) => {
                         console.error('Photo failed to load:', e.target.src);
+                        // Try alternative path
+                        if (!e.target.src.includes('/MyPorfolio/')) {
+                          e.target.src = '/MyPorfolio/images/satish-professional.jpg';
+                          return;
+                        }
+                        // Show fallback if all paths fail
                         e.target.style.display = 'none';
-                        // Show fallback message
                         const fallback = document.createElement('div');
-                        fallback.className = 'w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 text-gray-600 text-center p-4';
-                        fallback.innerHTML = '<div><div class="text-4xl mb-2">👨‍💼</div><div class="text-sm">Professional Photo<br/>Loading...</div></div>';
+                        fallback.className = 'w-full h-full flex items-center justify-center bg-gradient-to-br from-blue-100 to-purple-100 text-slate-700 text-center p-4';
+                        fallback.innerHTML = '<div><div class="text-6xl mb-4">👨‍💼</div><div class="text-lg font-semibold">Satish</div><div class="text-sm text-slate-600">IT Product Manager</div></div>';
                         e.target.parentNode.appendChild(fallback);
                       }}
                       onLoad={() => console.log('Photo loaded successfully')}
