@@ -370,9 +370,6 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
                       {job.period} • {job.location}
                     </div>
                   </div>
-                  <span className="px-3 py-1 bg-red-100 text-red-800 rounded-full text-sm font-medium">
-                    {job.type}
-                  </span>
                 </div>
                 
                 <div className="grid md:grid-cols-2 gap-4">
