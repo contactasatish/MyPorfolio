@@ -104,7 +104,7 @@ const Projects = () => {
             Project Impact Summary
           </h3>
           
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <div className="text-center">
               <div className="text-4xl font-light text-blue-600 mb-2">260+</div>
               <div className="text-slate-600">Hours Saved</div>
@@ -119,6 +119,25 @@ const Projects = () => {
               <div className="text-4xl font-light text-purple-600 mb-2">99%</div>
               <div className="text-slate-600">Compliance Rate</div>
               <div className="text-sm text-slate-500 mt-1">Regulatory Standards</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-light text-orange-600 mb-2">38</div>
+              <div className="text-slate-600">NDC Integrations</div>
+              <div className="text-sm text-slate-500 mt-1">Airline Partnerships</div>
+            </div>
+          </div>
+          
+          {/* Additional metrics row for Travel/Airline solutions */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mt-8 pt-8 border-t border-slate-200">
+            <div className="text-center">
+              <div className="text-4xl font-light text-orange-600 mb-2">30M+</div>
+              <div className="text-slate-600">Incremental Bookings</div>
+              <div className="text-sm text-slate-500 mt-1">Travel Platform</div>
+            </div>
+            <div className="text-center">
+              <div className="text-4xl font-light text-blue-600 mb-2">5-20%</div>
+              <div className="text-slate-600">Airfare Savings</div>
+              <div className="text-sm text-slate-500 mt-1">Cost Optimization</div>
             </div>
           </div>
         </div>
