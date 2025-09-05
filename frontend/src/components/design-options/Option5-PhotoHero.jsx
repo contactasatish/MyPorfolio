@@ -700,7 +700,10 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
             </a>
           </div>
           
-          <button className="px-8 py-4 bg-white text-red-500 rounded-lg hover:bg-gray-100 transition-colors font-semibold">
+          <button 
+            onClick={handleContactView}
+            className="px-8 py-4 bg-red-500 text-white rounded-lg hover:bg-red-600 transition-all duration-300 hover:scale-105 font-semibold shadow-lg hover:shadow-xl"
+          >
             Download Resume
           </button>
         </div>
