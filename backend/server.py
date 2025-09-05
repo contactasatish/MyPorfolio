@@ -179,27 +179,31 @@ async def upload_photo(
     
     return {"message": "Photo uploaded successfully", "filename": "satish-professional.jpg"}
 
+# File Management Routes
 @api_router.get("/resume/download")
 async def download_resume(request: Request):
-    resume_path = UPLOAD_DIR / "resume.pdf"
-    
-    if not resume_path.exists():
-        raise HTTPException(status_code=404, detail="Resume not found")
-    
-    # Track download analytics
-    event = AnalyticsEvent(
-        event_type=EventType.DOWNLOAD,
-        section="resume",
-        ip_address=get_client_ip(request),
-        user_agent=get_user_agent(request)
-    )
-    await db_instance.create_analytics_event(event)
-    
-    return FileResponse(
-        path=resume_path,
-        filename="Satish_Kumar_Resume.pdf",
-        media_type="application/pdf"
-    )
+    try:
+        # Generate PDF resume with actual content
+        pdf_data = generate_resume_pdf()
+        
+        # Track download analytics
+        event = AnalyticsEvent(
+            event_type=EventType.DOWNLOAD,
+            section="resume",
+            ip_address=get_client_ip(request),
+            user_agent=get_user_agent(request)
+        )
+        await db_instance.create_analytics_event(event)
+        
+        # Return PDF as streaming response
+        return StreamingResponse(
+            BytesIO(pdf_data),
+            media_type="application/pdf",
+            headers={"Content-Disposition": "attachment; filename=Satish_Resume.pdf"}
+        )
+    except Exception as e:
+        logger.error(f"Error generating resume: {e}")
+        raise HTTPException(status_code=500, detail="Error generating resume")
 
 @api_router.post("/resume/upload")
 async def upload_resume(
