@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { ArrowRight, MapPin, Mail, Phone, Linkedin, Calendar, Building, ExternalLink, Download, Heart, Monitor, Database, Cloud, Users, Trophy, Briefcase, Target } from 'lucide-react';
 
 // Option 5: Photo Hero Design (Inspired by Richard Brian/William Harry style)
