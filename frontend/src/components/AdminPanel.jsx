@@ -14,11 +14,16 @@ const AdminPanel = () => {
   const [token, setToken] = useState(localStorage.getItem('adminToken') || '');
   const [activeTab, setActiveTab] = useState('dashboard');
   const [loading, setLoading] = useState(false);
+  const [showCredentialsManager, setShowCredentialsManager] = useState(false);
+  const [newCredentials, setNewCredentials] = useState({ username: '', password: '', confirmPassword: '' });
   
   // Dashboard data
   const [analytics, setAnalytics] = useState(null);
   const [contactMessages, setContactMessages] = useState([]);
   const [dashboardLoading, setDashboardLoading] = useState(true);
+
+  // Check if we're on GitHub Pages (no backend)
+  const isGitHubPages = process.env.REACT_APP_USE_STATIC_DATA === 'true' || !BACKEND_URL || BACKEND_URL === '' || process.env.NODE_ENV === 'production';
 
   useEffect(() => {
     if (token) {
