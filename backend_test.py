@@ -397,6 +397,7 @@ class PortfolioAPITester:
         print("-" * 40)
         self.test_api_root()
         self.test_portfolio_data_retrieval()
+        self.test_travel_airline_project_verification()
         self.test_contact_form_submission()
         self.test_analytics_tracking()
         
