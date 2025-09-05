@@ -132,10 +132,13 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
           </div>
           <nav className="hidden md:flex space-x-8">
             {['Home', 'Works', 'About', 'Government', 'Projects'].map(item => (
-              <a key={item} href={`#${item.toLowerCase()}`} 
-                 className="text-gray-700 hover:text-red-500 transition-colors font-medium">
+              <button
+                key={item}
+                onClick={() => scrollToSection(`#${item === 'Home' ? 'hero' : item === 'Works' ? 'work' : item.toLowerCase()}`)}
+                className="text-gray-700 hover:text-red-500 transition-colors font-medium"
+              >
                 {item}
-              </a>
+              </button>
             ))}
           </nav>
           <button className="px-6 py-2 border-2 border-red-500 text-red-500 hover:bg-red-500 hover:text-white transition-all duration-300 font-medium">
