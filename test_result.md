@@ -141,7 +141,6 @@ metadata:
 
 test_plan:
   current_focus:
-    - "Add Travel/Airline Solutions Project to Backend Mock Data"
     - "Update Projects Component for Aviation Technology Category"
   stuck_tasks: []
   test_all: false
