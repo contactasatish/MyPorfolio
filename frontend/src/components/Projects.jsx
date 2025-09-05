@@ -88,11 +88,7 @@ const Projects = () => {
                   </div>
                 </div>
 
-                {/* Project Link */}
-                <button className="w-full bg-slate-900 text-white py-2 px-4 rounded-lg hover:bg-slate-800 transition-colors duration-200 flex items-center justify-center group">
-                  <span>View Project Details</span>
-                  <ExternalLink size={16} className="ml-2 group-hover:translate-x-1 transition-transform" />
-                </button>
+                {/* Removed non-functional View Project Details button */}
               </div>
             </div>
           ))}
