@@ -13,6 +13,8 @@ const Projects = () => {
         return <BarChart3 className="text-blue-600" size={20} />;
       case 'Compliance':
         return <Shield className="text-green-600" size={20} />;
+      case 'Aviation Technology':
+        return <Plane className="text-orange-600" size={20} />;
       default:
         return <Code className="text-slate-600" size={20} />;
     }
