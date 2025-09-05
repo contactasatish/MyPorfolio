@@ -87,6 +87,90 @@ class PortfolioAPITester:
             self.log_test("Portfolio Data Retrieval", False, f"Exception: {str(e)}")
             return False
 
+    def test_travel_airline_project_verification(self):
+        """Test GET /api/portfolio - verify Travel/Airline Solutions project is present with correct data"""
+        try:
+            response = self.session.get(f"{self.base_url}/portfolio")
+            if response.status_code == 200:
+                data = response.json()
+                projects = data.get("projects", [])
+                
+                # Check if we have 4 projects
+                if len(projects) != 4:
+                    self.log_test("Travel/Airline Project Verification", False, 
+                                f"Expected 4 projects, got {len(projects)}")
+                    return False
+                
+                # Find the Travel/Airline Solutions project (id=4)
+                travel_project = None
+                for project in projects:
+                    if project.get("id") == 4:
+                        travel_project = project
+                        break
+                
+                if not travel_project:
+                    self.log_test("Travel/Airline Project Verification", False, 
+                                "Travel/Airline Solutions project (id=4) not found")
+                    return False
+                
+                # Verify project details
+                expected_title = "Travel/Airline Solutions Implementation"
+                expected_category = "Aviation Technology"
+                expected_impact = "Delivered 38 live NDC airline integrations, facilitated 30M+ incremental bookings, achieved 5-20% airfare savings and 15-20% workflow improvements"
+                expected_technologies = ["NDC Integration", "GDS Systems", "API Development", "Travel Technology", "Airline Distribution", "Sabre Platform"]
+                
+                # Check title
+                if travel_project.get("title") != expected_title:
+                    self.log_test("Travel/Airline Project Verification", False, 
+                                f"Title mismatch. Expected: '{expected_title}', Got: '{travel_project.get('title')}'")
+                    return False
+                
+                # Check category
+                if travel_project.get("category") != expected_category:
+                    self.log_test("Travel/Airline Project Verification", False, 
+                                f"Category mismatch. Expected: '{expected_category}', Got: '{travel_project.get('category')}'")
+                    return False
+                
+                # Check impact
+                if travel_project.get("impact") != expected_impact:
+                    self.log_test("Travel/Airline Project Verification", False, 
+                                f"Impact mismatch. Expected: '{expected_impact}', Got: '{travel_project.get('impact')}'")
+                    return False
+                
+                # Check description contains NDC and GDS
+                description = travel_project.get("description", "")
+                if "NDC" not in description or "GDS" not in description:
+                    self.log_test("Travel/Airline Project Verification", False, 
+                                f"Description missing NDC/GDS details: '{description}'")
+                    return False
+                
+                # Check technologies
+                project_technologies = travel_project.get("technologies", [])
+                missing_technologies = [tech for tech in expected_technologies if tech not in project_technologies]
+                if missing_technologies:
+                    self.log_test("Travel/Airline Project Verification", False, 
+                                f"Missing technologies: {missing_technologies}")
+                    return False
+                
+                # Check image URL is present
+                image_url = travel_project.get("image", "")
+                if not image_url or not image_url.startswith("http"):
+                    self.log_test("Travel/Airline Project Verification", False, 
+                                f"Invalid or missing image URL: '{image_url}'")
+                    return False
+                
+                self.log_test("Travel/Airline Project Verification", True, 
+                            f"✅ Travel/Airline Solutions project verified successfully with all required details")
+                return True
+                
+            else:
+                self.log_test("Travel/Airline Project Verification", False, 
+                            f"Status: {response.status_code}", response.text)
+                return False
+        except Exception as e:
+            self.log_test("Travel/Airline Project Verification", False, f"Exception: {str(e)}")
+            return False
+
     def test_contact_form_submission(self):
         """Test POST /api/contact - test with sample contact form submission"""
         try:
