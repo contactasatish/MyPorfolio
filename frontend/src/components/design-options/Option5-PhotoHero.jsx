@@ -695,9 +695,7 @@ I'll be happy to send you my detailed resume directly!`;
                     ))}
                   </div>
                   
-                  <button className="w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-colors font-semibold">
-                    View Details
-                  </button>
+                  {/* Removed non-functional View Details button */}
                 </div>
               </div>
             ))}
