@@ -11,7 +11,7 @@ from datetime import datetime
 from typing import Dict, Any, Optional
 
 # Load environment variables
-BACKEND_URL = "https://satish-kumar-pm.preview.emergentagent.com/api"
+BACKEND_URL = "https://satish-portfolio.preview.emergentagent.com/api"
 
 class PortfolioAPITester:
     def __init__(self):
