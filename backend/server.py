@@ -1,6 +1,6 @@
 from fastapi import FastAPI, APIRouter, Request, HTTPException, Depends, UploadFile, File
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
-from fastapi.responses import FileResponse
+from fastapi.responses import FileResponse, StreamingResponse
 from dotenv import load_dotenv
 from starlette.middleware.cors import CORSMiddleware
 from motor.motor_asyncio import AsyncIOMotorClient
@@ -10,12 +10,14 @@ from pathlib import Path
 from typing import List, Optional
 from datetime import datetime, timedelta
 import shutil
+from io import BytesIO
 
 # Import our custom modules
 from models import *
 from database import Database
 from auth import verify_password, create_access_token, verify_token, get_password_hash
 from utils import get_client_ip, get_user_agent, sanitize_filename
+from resume_generator import generate_resume_pdf
 
 ROOT_DIR = Path(__file__).parent
 load_dotenv(ROOT_DIR / '.env')
