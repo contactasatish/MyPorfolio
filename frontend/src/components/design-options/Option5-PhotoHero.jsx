@@ -14,7 +14,7 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
             {personal.name.split(' ')[0]}<span className="text-red-500">.</span>
           </div>
           <nav className="hidden md:flex space-x-8">
-            {['Home', 'Works', 'About', 'Projects', 'Services'].map(item => (
+            {['Home', 'Works', 'About', 'Government', 'Projects'].map(item => (
               <a key={item} href={`#${item.toLowerCase()}`} 
                  className="text-gray-700 hover:text-red-500 transition-colors font-medium">
                 {item}
