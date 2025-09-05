@@ -181,6 +181,45 @@ const AdminPanel = () => {
   };
 
   if (!isAuthenticated) {
+    // GitHub Pages - Show only restriction message
+    if (isGitHubPages) {
+      return (
+        <div className="min-h-screen bg-slate-100 flex items-center justify-center">
+          <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
+            <div className="text-center mb-8">
+              <h1 className="text-2xl font-bold text-slate-900 mb-2">Admin Panel</h1>
+              <p className="text-slate-600">Administrative Access</p>
+            </div>
+            
+            <div className="p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-sm">
+              <div className="flex items-center text-yellow-800 mb-2">
+                <AlertCircle size={16} className="mr-2" />
+                <strong>Access Restricted</strong>
+              </div>
+              <p className="text-yellow-700 mb-3">
+                Contact Satish for Administrative access.
+              </p>
+              <div className="text-xs text-yellow-600 space-y-1">
+                <div><strong>Email:</strong> contactasatish@gmail.com</div>
+                <div><strong>Phone:</strong> 347-341-7341</div>
+                <div><strong>LinkedIn:</strong> linkedin.com/in/asatishkr</div>
+              </div>
+            </div>
+            
+            <div className="mt-4 text-center">
+              <a 
+                href="/#" 
+                className="text-blue-600 hover:text-blue-800 text-sm underline"
+              >
+                ← Back to Portfolio
+              </a>
+            </div>
+          </div>
+        </div>
+      );
+    }
+
+    // Full-stack version - Show login form
     return (
       <div className="min-h-screen bg-slate-100 flex items-center justify-center">
         <div className="bg-white p-8 rounded-xl shadow-lg w-full max-w-md">
@@ -221,38 +260,23 @@ const AdminPanel = () => {
             </button>
           </form>
           
-          {isGitHubPages ? (
-            <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-sm">
-              <div className="flex items-center text-yellow-800 mb-2">
-                <AlertCircle size={16} className="mr-2" />
-                <strong>Access Restricted</strong>
-              </div>
-              <p className="text-yellow-700">
-                Contact Satish for Administrative access.
-              </p>
-              <div className="mt-3 text-xs text-yellow-600">
-                <strong>Contact:</strong> contactasatish@gmail.com
-              </div>
+          <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg text-sm">
+            <div className="flex items-center text-blue-800 mb-2">
+              <MessageSquare size={16} className="mr-2" />
+              <strong>Need Access?</strong>
             </div>
-          ) : (
-            <div className="mt-4 p-3 bg-blue-50 border border-blue-200 rounded-lg text-sm">
-              <div className="flex items-center text-blue-800 mb-2">
-                <MessageSquare size={16} className="mr-2" />
-                <strong>Need Access?</strong>
-              </div>
-              <p className="text-blue-700">
-                Contact the administrator to set up your credentials or request access.
-              </p>
-              <button
-                onClick={() => setShowCredentialsManager(!showCredentialsManager)}
-                className="mt-2 text-blue-600 hover:text-blue-800 underline text-xs"
-              >
-                {showCredentialsManager ? 'Hide' : 'Show'} Credentials Manager
-              </button>
-            </div>
-          )}
+            <p className="text-blue-700">
+              Contact the administrator to set up your credentials or request access.
+            </p>
+            <button
+              onClick={() => setShowCredentialsManager(!showCredentialsManager)}
+              className="mt-2 text-blue-600 hover:text-blue-800 underline text-xs"
+            >
+              {showCredentialsManager ? 'Hide' : 'Show'} Credentials Manager
+            </button>
+          </div>
           
-          {showCredentialsManager && !isGitHubPages && (
+          {showCredentialsManager && (
             <div className="mt-4 p-4 bg-slate-50 border border-slate-200 rounded-lg">
               <h4 className="font-semibold text-slate-800 mb-3">Update Admin Credentials</h4>
               <div className="space-y-3">
