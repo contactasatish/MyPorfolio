@@ -157,6 +157,15 @@ function App() {
             technologies: ["Compliance Management", "Automation", "Regulatory Systems", "Quality Assurance"],
             image: "https://images.unsplash.com/photo-1728995025396-b5141e209455?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxhYnN0cmFjdCUyMHRlY2glMjBkYXRhJTIwdmlzdWFsaXphdGlvbnxlbnwwfHx8fDE3NTcwMTc1NzN8MA&ixlib=rb-4.1.0&q=85",
             category: "Compliance"
+          },
+          {
+            id: 4,
+            title: "Travel/Airline Solutions Implementation",
+            description: "Enterprise-scale NDC and GDS integration platform enabling next-generation airline distribution and booking capabilities across global travel networks",
+            impact: "Delivered 38 live NDC airline integrations, facilitated 30M+ incremental bookings, achieved 5-20% airfare savings and 15-20% workflow improvements",
+            technologies: ["NDC Integration", "GDS Systems", "API Development", "Travel Technology", "Airline Distribution", "Sabre Platform"],
+            image: "https://images.unsplash.com/photo-1436491865332-7a61a109cc05?crop=entropy&cs=srgb&fm=jpg&ixid=M3w3NTY2Njl8MHwxfHNlYXJjaHwxfHxhaXJwbGFuZSUyMHRyYXZlbCUyMGF2aWF0aW9ufGVufDB8fHx8MTc1NzAxNzU3M3ww&ixlib=rb-4.1.0&q=85",
+            category: "Aviation Technology"
           }
         ]
       });
