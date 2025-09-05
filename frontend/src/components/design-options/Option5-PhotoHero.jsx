@@ -258,6 +258,150 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
         </div>
       </section>
 
+      {/* Government Industries & Domain Expertise Section */}
+      <section id="government" className="py-20 bg-gradient-to-br from-blue-50 to-indigo-50">
+        <div className="max-w-7xl mx-auto px-6">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-900 mb-4">Government Industries & Domain Expertise</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+              Deep expertise in regulatory compliance and government sector requirements across aviation, environmental, and federal agencies
+            </p>
+          </div>
+          
+          <div className="grid md:grid-cols-4 gap-8 mb-12">
+            {[
+              {
+                name: "ATPCO",
+                fullName: "Airline Tariff Publishing Company",
+                logo: "🛫",
+                description: "Aviation pricing and tariff data standards",
+                domain: "Aviation Regulatory"
+              },
+              {
+                name: "IATA",
+                fullName: "International Air Transport Association", 
+                logo: "✈️",
+                description: "Global airline industry standards and regulations",
+                domain: "International Aviation"
+              },
+              {
+                name: "SITA",
+                fullName: "Société Internationale de Télécommunications",
+                logo: "🌐",
+                description: "Air transport communications and IT solutions",
+                domain: "Aviation Technology"
+              },
+              {
+                name: "DOT",
+                fullName: "Department of Transportation",
+                logo: "🚗",
+                description: "Federal transportation policies and regulations",
+                domain: "Federal Transportation"
+              }
+            ].map((org, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 text-center group hover:scale-105">
+                <div className="text-4xl mb-4">{org.logo}</div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{org.name}</h3>
+                <div className="text-sm text-red-500 font-medium mb-3">{org.domain}</div>
+                <p className="text-gray-600 text-sm leading-relaxed mb-3">{org.description}</p>
+                <div className="text-xs text-gray-500">{org.fullName}</div>
+              </div>
+            ))}
+          </div>
+
+          <div className="grid md:grid-cols-4 gap-8">
+            {[
+              {
+                name: "EPA",
+                fullName: "Environmental Protection Agency",
+                logo: "🌱",
+                description: "Federal environmental regulations and compliance",
+                domain: "Environmental Compliance"
+              },
+              {
+                name: "RCRA",
+                fullName: "Resource Conservation and Recovery Act",
+                logo: "♻️",
+                description: "Hazardous waste management regulations",
+                domain: "Waste Management"
+              },
+              {
+                name: "State EPA",
+                fullName: "State Environmental Protection Agencies",
+                logo: "🏛️",
+                description: "State-level environmental compliance requirements",
+                domain: "State Regulations"
+              },
+              {
+                name: "Federal EPA",
+                fullName: "Federal Environmental Protection Agency",
+                logo: "🇺🇸",
+                description: "Federal environmental standards and enforcement",
+                domain: "Federal Compliance"
+              }
+            ].map((org, index) => (
+              <div key={index} className="bg-white p-6 rounded-xl shadow-sm border border-gray-200 hover:shadow-md transition-all duration-300 text-center group hover:scale-105">
+                <div className="text-4xl mb-4">{org.logo}</div>
+                <h3 className="text-lg font-bold text-gray-900 mb-2">{org.name}</h3>
+                <div className="text-sm text-green-600 font-medium mb-3">{org.domain}</div>
+                <p className="text-gray-600 text-sm leading-relaxed mb-3">{org.description}</p>
+                <div className="text-xs text-gray-500">{org.fullName}</div>
+              </div>
+            ))}
+          </div>
+
+          {/* SME Highlights */}
+          <div className="mt-16 bg-white rounded-2xl p-8 shadow-sm border border-gray-200">
+            <h3 className="text-2xl font-bold text-gray-900 mb-8 text-center">Subject Matter Expertise (SME)</h3>
+            
+            <div className="grid md:grid-cols-3 gap-8">
+              <div className="text-center">
+                <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="text-2xl">🛡️</div>
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-3">Regulatory Compliance</h4>
+                <p className="text-gray-600 text-sm">100% RCRA & EPA compliance across 500+ facilities</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-red-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="text-2xl">✈️</div>
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-3">Aviation Industry</h4>
+                <p className="text-gray-600 text-sm">15+ GDS integrations and airline stakeholder management</p>
+              </div>
+              
+              <div className="text-center">
+                <div className="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <div className="text-2xl">🌍</div>
+                </div>
+                <h4 className="font-semibold text-gray-900 mb-3">Environmental Systems</h4>
+                <p className="text-gray-600 text-sm">Waste management and environmental data systems</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Compliance Metrics */}
+          <div className="mt-12 bg-gradient-to-r from-green-500 to-blue-600 text-white rounded-2xl p-8 text-center">
+            <h3 className="text-2xl font-bold mb-6">Compliance Track Record</h3>
+            <div className="grid md:grid-cols-3 gap-8">
+              <div>
+                <div className="text-4xl font-bold mb-2">100%</div>
+                <div className="text-green-100">RCRA Compliance Rate</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold mb-2">500+</div>
+                <div className="text-green-100">Regulated Facilities</div>
+              </div>
+              <div>
+                <div className="text-4xl font-bold mb-2">98%</div>
+                <div className="text-green-100">Stakeholder Satisfaction</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Projects Section */}
       <section id="projects" className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-6">
