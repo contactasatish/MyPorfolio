@@ -219,11 +219,10 @@ const AdminPanel = () => {
             <div className="mt-4 p-4 bg-yellow-50 border border-yellow-200 rounded-lg text-sm">
               <div className="flex items-center text-yellow-800 mb-2">
                 <AlertCircle size={16} className="mr-2" />
-                <strong>Admin Panel Unavailable</strong>
+                <strong>Access Restricted</strong>
               </div>
               <p className="text-yellow-700">
-                Admin functionality requires the full-stack version with backend services. 
-                Contact the developer for administrative access.
+                Contact Satish for Administrative access.
               </p>
               <div className="mt-3 text-xs text-yellow-600">
                 <strong>Contact:</strong> contactasatish@gmail.com
