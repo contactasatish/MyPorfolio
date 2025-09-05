@@ -50,7 +50,14 @@ function App() {
 
   const fetchPortfolioData = async () => {
     // Check if we're in GitHub Pages deployment (no backend available)
-    const isGitHubPages = process.env.REACT_APP_USE_STATIC_DATA === 'true' || !BACKEND_URL || BACKEND_URL === '';
+    const isGitHubPages = process.env.REACT_APP_USE_STATIC_DATA === 'true' || !BACKEND_URL || BACKEND_URL === '' || process.env.NODE_ENV === 'production';
+    
+    console.log('Environment check:', {
+      NODE_ENV: process.env.NODE_ENV,
+      REACT_APP_USE_STATIC_DATA: process.env.REACT_APP_USE_STATIC_DATA,
+      BACKEND_URL: BACKEND_URL,
+      isGitHubPages: isGitHubPages
+    });
     
     if (isGitHubPages) {
       console.log('Using static data for GitHub Pages deployment');
