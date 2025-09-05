@@ -178,18 +178,25 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
             {/* Right Content - Hero Image with Floating Icons */}
             <div className="relative">
               <div className="relative bg-gradient-to-br from-red-400 via-purple-500 to-red-600 rounded-3xl p-8 overflow-hidden">
-                {/* Professional Photo Placeholder */}
+                {/* Professional Photo */}
                 <div className="relative z-10 text-center">
-                  <div className="w-80 h-96 bg-white/20 rounded-2xl mx-auto flex items-center justify-center mb-6">
-                    <div className="text-center text-white">
-                      <div className="text-6xl mb-4">👨‍💼</div>
-                      <div className="text-lg font-medium">Professional Photo</div>
-                      <div className="text-sm opacity-80">Satish Kumar</div>
+                  <div className="w-80 h-96 bg-gradient-to-br from-blue-500 to-blue-700 rounded-2xl mx-auto flex items-center justify-center mb-6 overflow-hidden shadow-2xl">
+                    {/* Professional headshot - using a refined professional photo */}
+                    <div className="w-full h-full bg-cover bg-center bg-no-repeat relative" 
+                         style={{
+                           backgroundImage: `url('https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80')`
+                         }}>
+                      {/* Professional overlay */}
+                      <div className="absolute inset-0 bg-gradient-to-t from-blue-900/30 to-transparent"></div>
+                      <div className="absolute bottom-4 left-4 right-4 text-white">
+                        <div className="text-lg font-bold">{personal.name}</div>
+                        <div className="text-sm opacity-90">IT Product Manager</div>
+                      </div>
                     </div>
                   </div>
                   
                   <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 inline-block">
-                    <p className="text-white font-medium">Subscribe my Newsletter</p>
+                    <p className="text-white font-medium">Available for Leadership Roles</p>
                   </div>
                 </div>
 
