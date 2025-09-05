@@ -235,13 +235,23 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
                   <div className="w-80 h-96 rounded-2xl mx-auto overflow-hidden mb-6 shadow-2xl border-4 border-white/20">
                     {/* Your actual professional photo */}
                     <img 
-                      src="/images/satish-professional.jpg" 
+                      src={`${process.env.PUBLIC_URL}/images/satish-professional.jpg`}
                       alt="Satish - IT Product Manager"
                       className="w-full h-full object-cover object-center"
                       style={{
                         // Professional headshot styling with proper cropping
                         filter: 'brightness(1.1) contrast(1.1) saturate(1.05)',
                         objectPosition: 'center 20%', // Focus on face/upper body
+                      }}
+                      onLoad={() => console.log('Photo loaded successfully')}
+                      onError={(e) => {
+                        console.error('Photo failed to load:', e.target.src);
+                        e.target.style.display = 'none';
+                        // Show fallback message
+                        const fallback = document.createElement('div');
+                        fallback.className = 'w-full h-full flex items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200 text-gray-600 text-center p-4';
+                        fallback.innerHTML = '<div><div class="text-4xl mb-2">👨‍💼</div><div class="text-sm">Professional Photo<br/>Loading...</div></div>';
+                        e.target.parentNode.appendChild(fallback);
                       }}
                       onLoad={() => console.log('Photo loaded successfully')}
                       onError={(e) => {
