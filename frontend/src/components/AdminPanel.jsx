@@ -105,6 +105,27 @@ const AdminPanel = () => {
     }
   };
 
+  const uploadPhoto = async (event) => {
+    const file = event.target.files[0];
+    if (!file) return;
+
+    const formData = new FormData();
+    formData.append('file', file);
+
+    try {
+      await axios.post(`${API}/upload/photo`, formData, {
+        headers: { 
+          Authorization: `Bearer ${token}`,
+          'Content-Type': 'multipart/form-data'
+        }
+      });
+      alert('Photo uploaded successfully! Refresh the main page to see it.');
+    } catch (error) {
+      console.error('Error uploading photo:', error);
+      alert('Error uploading photo. Please try again.');
+    }
+  };
+
   if (!isAuthenticated) {
     return (
       <div className="min-h-screen bg-slate-100 flex items-center justify-center">
