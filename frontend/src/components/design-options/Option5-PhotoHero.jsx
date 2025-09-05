@@ -409,9 +409,9 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Featured Projects</h2>
           </div>
           
-          <div className="grid lg:grid-cols-3 gap-8">
+          <div className="grid lg:grid-cols-2 gap-8">
             {projects.map((project) => (
-              <div key={project.id} className="bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-105">
+              <div key={project.id} className={`${project.id === 4 ? 'lg:col-span-2' : ''} bg-white border border-gray-200 rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-105`}>
                 <div className="relative h-48 overflow-hidden">
                   <img src={project.image} alt={project.title} className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
@@ -424,9 +424,65 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
                   <h3 className="text-xl font-bold text-gray-900 mb-3">{project.title}</h3>
                   <p className="text-gray-600 mb-4 leading-relaxed">{project.description}</p>
                   
+                  {/* Special detailed view for Travel/Airline project */}
+                  {project.id === 4 && (
+                    <div className="mb-6 space-y-4">
+                      <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                        <h4 className="font-semibold text-blue-900 mb-3">Key Accomplishments:</h4>
+                        <div className="grid md:grid-cols-2 gap-4 text-sm">
+                          <div className="space-y-2">
+                            <div className="flex items-center">
+                              <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                              <span className="text-blue-800"><strong>38 Live NDC Integrations</strong> - Major airlines including Air France-KLM, Iberia, Turkish Airlines</span>
+                            </div>
+                            <div className="flex items-center">
+                              <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                              <span className="text-blue-800"><strong>30M+ Incremental Bookings</strong> facilitated across global travel networks</span>
+                            </div>
+                            <div className="flex items-center">
+                              <div className="w-2 h-2 bg-blue-500 rounded-full mr-2"></div>
+                              <span className="text-blue-800"><strong>5-20% Airfare Savings</strong> through exclusive fares and dynamic offers</span>
+                            </div>
+                          </div>
+                          <div className="space-y-2">
+                            <div className="flex items-center">
+                              <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                              <span className="text-green-800"><strong>15-20% Workflow Improvements</strong> in shopping, booking, and servicing</span>
+                            </div>
+                            <div className="flex items-center">
+                              <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                              <span className="text-green-800"><strong>Reduced Processing Errors</strong> and manual rework through centralized booking</span>
+                            </div>
+                            <div className="flex items-center">
+                              <div className="w-2 h-2 bg-green-500 rounded-full mr-2"></div>
+                              <span className="text-green-800"><strong>Enhanced Traveler Experience</strong> with personalized, real-time offers</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                      
+                      <div className="bg-purple-50 border border-purple-200 rounded-lg p-4">
+                        <h4 className="font-semibold text-purple-900 mb-2">Business Impact:</h4>
+                        <p className="text-purple-800 text-sm">
+                          Enabled travel agencies to access exclusive content and bundled ancillaries, resulting in higher traveler satisfaction 
+                          and measurable program savings—often thousands of dollars annually for large corporate customers. 
+                          Scaled adoption across both corporate and leisure segments globally.
+                        </p>
+                      </div>
+                    </div>
+                  )}
+                  
                   <div className="bg-green-50 border border-green-200 rounded-lg p-3 mb-4">
                     <div className="text-sm font-medium text-green-800">Impact:</div>
                     <div className="text-green-700 text-sm">{project.impact}</div>
+                  </div>
+                  
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    {project.technologies.slice(0, project.id === 4 ? 6 : 3).map((tech, i) => (
+                      <span key={i} className="px-2 py-1 bg-gray-100 text-gray-700 rounded text-xs font-medium">
+                        {tech}
+                      </span>
+                    ))}
                   </div>
                   
                   <button className="w-full bg-red-500 text-white py-2 px-4 rounded-lg hover:bg-red-600 transition-colors font-semibold">
@@ -435,6 +491,29 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
                 </div>
               </div>
             ))}
+          </div>
+
+          {/* Travel Industry Impact Summary */}
+          <div className="mt-16 bg-gradient-to-r from-blue-600 to-indigo-700 text-white rounded-2xl p-8">
+            <h3 className="text-2xl font-bold mb-6 text-center">Travel Industry Impact</h3>
+            <div className="grid md:grid-cols-4 gap-6 text-center">
+              <div>
+                <div className="text-3xl font-bold mb-2">38</div>
+                <div className="text-blue-100">NDC Airline Integrations</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold mb-2">30M+</div>
+                <div className="text-blue-100">Incremental Bookings</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold mb-2">20%</div>
+                <div className="text-blue-100">Workflow Improvement</div>
+              </div>
+              <div>
+                <div className="text-3xl font-bold mb-2">$1000s</div>
+                <div className="text-blue-100">Annual Customer Savings</div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
