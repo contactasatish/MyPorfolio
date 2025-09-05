@@ -159,6 +159,24 @@ async def get_analytics_stats(
     return stats
 
 # File Management Routes
+# File Management Routes
+@api_router.post("/upload/photo")
+async def upload_photo(
+    file: UploadFile = File(...),
+    admin: str = Depends(get_current_admin)
+):
+    if not file.content_type.startswith("image/"):
+        raise HTTPException(status_code=400, detail="Only image files are allowed")
+    
+    # Save uploaded photo as professional headshot
+    photo_path = ROOT_DIR / "../frontend/public/images/satish-professional.jpg"
+    photo_path.parent.mkdir(exist_ok=True)
+    
+    with open(photo_path, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
+    
+    return {"message": "Photo uploaded successfully", "filename": "satish-professional.jpg"}
+
 @api_router.get("/resume/download")
 async def download_resume(request: Request):
     resume_path = UPLOAD_DIR / "resume.pdf"
