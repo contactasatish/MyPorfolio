@@ -365,6 +365,56 @@ const AdminPanel = () => {
               </div>
             )}
 
+            {/* Photo Upload Tab */}
+            {activeTab === 'photo' && (
+              <div className="bg-white rounded-xl shadow-sm border border-gray-100 p-8">
+                <h3 className="text-2xl font-semibold text-gray-900 mb-6">Upload Professional Photo</h3>
+                
+                <div className="bg-blue-50 border border-blue-200 rounded-lg p-6 mb-6">
+                  <h4 className="font-semibold text-blue-900 mb-3">📸 Your Mediterranean Photo</h4>
+                  <p className="text-blue-800 text-sm mb-4">
+                    I can see your beautiful professional photo with the Mediterranean coastal background! 
+                    Upload it here to replace the placeholder in your portfolio.
+                  </p>
+                  <ul className="text-blue-700 text-sm space-y-1">
+                    <li>✅ <strong>Great professional appearance</strong> - Perfect for executive roles</li>
+                    <li>✅ <strong>Beautiful coastal background</strong> - Shows international experience</li>
+                    <li>✅ <strong>Professional lighting</strong> - Will look amazing with our styling</li>
+                    <li>✅ <strong>Perfect composition</strong> - Ideal for portfolio use</li>
+                  </ul>
+                </div>
+
+                <div className="border-2 border-dashed border-gray-300 rounded-lg p-8 text-center">
+                  <div className="text-4xl mb-4">📸</div>
+                  <h4 className="text-lg font-semibold text-gray-900 mb-2">Upload Your Professional Photo</h4>
+                  <p className="text-gray-600 mb-4">
+                    Select your Mediterranean coastal photo to use as your professional headshot
+                  </p>
+                  
+                  <input
+                    type="file"
+                    accept="image/*"
+                    onChange={uploadPhoto}
+                    className="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100"
+                  />
+                  
+                  <p className="text-xs text-gray-500 mt-2">
+                    Recommended: JPG or PNG, at least 400x500 pixels
+                  </p>
+                </div>
+
+                <div className="mt-6 bg-gray-50 rounded-lg p-4">
+                  <h4 className="font-semibold text-gray-900 mb-2">What happens after upload:</h4>
+                  <ol className="text-sm text-gray-700 space-y-1">
+                    <li>1. Your photo will be saved as the professional headshot</li>
+                    <li>2. It will automatically appear in the hero section</li>
+                    <li>3. Professional styling and overlay will be applied</li>
+                    <li>4. Refresh the main portfolio page to see it live!</li>
+                  </ol>
+                </div>
+              </div>
+            )}
+
             {/* Analytics Tab */}
             {activeTab === 'analytics' && analytics && (
               <div className="space-y-8">
