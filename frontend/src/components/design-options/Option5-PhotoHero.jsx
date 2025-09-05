@@ -5,6 +5,92 @@ import { ArrowRight, MapPin, Mail, Phone, Linkedin, Calendar, Building, External
 const PhotoHeroPortfolio = ({ portfolioData }) => {
   const { personal, about, skills, experience, projects } = portfolioData;
 
+  // Counter animation hook
+  const useCountUp = (end, duration = 2000, trigger = true) => {
+    const [count, setCount] = useState(0);
+    
+    useEffect(() => {
+      if (!trigger) return;
+      
+      let startTime;
+      let animationFrame;
+      
+      const animate = (timestamp) => {
+        if (!startTime) startTime = timestamp;
+        const progress = timestamp - startTime;
+        const percentage = Math.min(progress / duration, 1);
+        
+        // Easing function for smooth animation
+        const easeOutCubic = 1 - Math.pow(1 - percentage, 3);
+        setCount(Math.floor(end * easeOutCubic));
+        
+        if (percentage < 1) {
+          animationFrame = requestAnimationFrame(animate);
+        }
+      };
+      
+      animationFrame = requestAnimationFrame(animate);
+      
+      return () => {
+        if (animationFrame) {
+          cancelAnimationFrame(animationFrame);
+        }
+      };
+    }, [end, duration, trigger]);
+    
+    return count;
+  };
+
+  // Intersection Observer hook for scroll-triggered animations
+  const useInView = () => {
+    const [inView, setInView] = useState(false);
+    const ref = useRef();
+    
+    useEffect(() => {
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            setInView(true);
+          }
+        },
+        { threshold: 0.3 }
+      );
+      
+      if (ref.current) {
+        observer.observe(ref.current);
+      }
+      
+      return () => observer.disconnect();
+    }, []);
+    
+    return [ref, inView];
+  };
+
+  // Create multiple refs for different sections
+  const [heroStatsRef, heroStatsInView] = useInView();
+  const [projectStatsRef, projectStatsInView] = useInView();
+  const [complianceRef, complianceInView] = useInView();
+  const [travelImpactRef, travelImpactInView] = useInView();
+
+  // Animated counters for different sections
+  const heroYears = useCountUp(15, 2000, heroStatsInView);
+  const heroProjects = useCountUp(572, 2500, heroStatsInView);
+  
+  const digitalTransform = useCountUp(85, 2000, projectStatsInView);
+  const saasImplementation = useCountUp(92, 2200, projectStatsInView);
+  const dataAnalytics = useCountUp(78, 1800, projectStatsInView);
+  const productDeliveries = useCountUp(100, 2300, projectStatsInView);
+  const workingYears = useCountUp(15, 2000, projectStatsInView);
+  
+  const complianceRate = useCountUp(100, 2000, complianceInView);
+  const facilitiesCount = useCountUp(500, 2500, complianceInView);
+  const satisfactionRate = useCountUp(98, 1800, complianceInView);
+  
+  const ndcIntegrations = useCountUp(38, 2000, travelImpactInView);
+  const incrementalBookings = useCountUp(30, 2200, travelImpactInView);
+  const workflowImprovement = useCountUp(20, 1800, travelImpactInView);
+  const annualSavings = useCountUp(1000, 2500, travelImpactInView);
+
   return (
     <div className="min-h-screen bg-gray-50 text-gray-900">
       {/* Header */}
