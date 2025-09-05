@@ -238,13 +238,6 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
                 <div className="absolute bottom-48 left-12 w-12 h-12 bg-white rounded-full flex items-center justify-center shadow-lg">
                   <Cloud size={20} className="text-green-500" />
                 </div>
-
-                {/* Award Badge */}
-                <div className="absolute top-4 right-16 bg-white rounded-xl p-3 shadow-lg">
-                  <Trophy size={16} className="text-yellow-500 mb-1" />
-                  <div className="text-xs font-semibold text-gray-800">Best PM</div>
-                  <div className="text-xs text-gray-600">Awards</div>
-                </div>
               </div>
             </div>
           </div>
