@@ -19,15 +19,30 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
 
   const handleDownloadResume = () => {
     // Check if we're in GitHub Pages deployment (no backend available)
-    const isGitHubPages = process.env.REACT_APP_USE_STATIC_DATA === 'true' || !process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL === '';
+    const isGitHubPages = process.env.REACT_APP_USE_STATIC_DATA === 'true' || !process.env.REACT_APP_BACKEND_URL || process.env.REACT_APP_BACKEND_URL === '' || process.env.NODE_ENV === 'production';
     
     if (isGitHubPages) {
-      // For GitHub Pages, show an alert or redirect to LinkedIn
-      alert('Resume download is available on the full-stack version. Please contact me via email or LinkedIn for my latest resume.');
+      // For GitHub Pages, provide contact alternatives instead of broken download
+      const message = `Resume Download Available via Contact:
+
+📧 Email: contactasatish@gmail.com
+💼 LinkedIn: linkedin.com/in/asatishkr
+📞 Phone: 347-341-7341
+
+I'll be happy to send you my detailed resume directly!`;
+      
+      alert(message);
+      
+      // Also offer to open email client
+      setTimeout(() => {
+        if (confirm('Would you like to open your email client to contact me directly?')) {
+          window.open(`mailto:contactasatish@gmail.com?subject=Resume Request&body=Hi Satish,%0D%0A%0D%0AI would like to request your latest resume.%0D%0A%0D%0ABest regards`, '_blank');
+        }
+      }, 1000);
       return;
     }
 
-    // Create a temporary link to download resume from backend
+    // Create a temporary link to download resume from backend (full-stack version only)
     const link = document.createElement('a');
     link.href = '/api/resume/download';
     link.download = 'Satish_Kumar_Resume.pdf';
