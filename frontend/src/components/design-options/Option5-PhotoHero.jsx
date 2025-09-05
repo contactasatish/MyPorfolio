@@ -178,42 +178,34 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
             {/* Right Content - Hero Image with Floating Icons */}
             <div className="relative">
               <div className="relative bg-gradient-to-br from-red-400 via-purple-500 to-red-600 rounded-3xl p-8 overflow-hidden">
-                {/* Professional Photo - Satish's actual photo */}
+                {/* Professional Photo - Your actual uploaded photo */}
                 <div className="relative z-10 text-center">
                   <div className="w-80 h-96 rounded-2xl mx-auto overflow-hidden mb-6 shadow-2xl border-4 border-white/20">
-                    {/* Your actual professional headshot - cropped and positioned */}
-                    <img 
-                      src="/images/satish-professional.jpg" 
-                      alt="Satish - IT Product Manager"
-                      className="w-full h-full object-cover object-top"
-                      style={{
-                        // Professional headshot styling with proper cropping
-                        filter: 'brightness(1.1) contrast(1.1) saturate(1.05)',
-                        objectPosition: 'center 20%', // Focus on face/upper body
-                        transform: 'scale(1.1)' // Slight zoom for better framing
-                      }}
-                      onError={(e) => {
-                        // Fallback if image not found
-                        e.target.style.display = 'none';
-                        e.target.nextSibling.style.display = 'flex';
-                      }}
-                    />
-                    {/* Fallback placeholder */}
-                    <div className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white" style={{display: 'none'}}>
-                      <div className="text-center">
-                        <div className="text-4xl mb-2">👨‍💼</div>
-                        <div className="text-lg font-bold">Satish</div>
-                        <div className="text-sm opacity-80">IT Product Manager</div>
-                        <div className="text-xs mt-2 opacity-60">Professional headshot<br/>with Mediterranean background</div>
+                    {/* Placeholder for your actual professional photo */}
+                    <div className="w-full h-full bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center text-white">
+                      <div className="text-center p-6">
+                        <div className="text-4xl mb-4">📸</div>
+                        <div className="text-lg font-bold mb-2">{personal.name}</div>
+                        <div className="text-sm opacity-90 mb-3">IT Product Manager</div>
+                        <div className="text-xs opacity-80 leading-relaxed">
+                          Please upload your professional photo from the Mediterranean setting as:<br/>
+                          <code className="bg-black/20 px-2 py-1 rounded text-xs mt-2 inline-block">
+                            /app/frontend/public/images/satish-professional.jpg
+                          </code>
+                        </div>
+                        <div className="text-xs opacity-60 mt-3">
+                          Your photo with the beautiful coastal background will look amazing here!
+                        </div>
                       </div>
                     </div>
                     
-                    {/* Professional overlay with subtle gradient */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent"></div>
-                    <div className="absolute bottom-4 left-4 right-4 text-white">
-                      <div className="text-xl font-bold drop-shadow-lg">{personal.name}</div>
-                      <div className="text-sm opacity-95 drop-shadow-lg">Senior IT Product Manager</div>
-                      <div className="text-xs opacity-80 mt-1">15+ Years Digital Transformation</div>
+                    {/* Professional overlay for when real photo is added */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-transparent opacity-0 hover:opacity-100 transition-opacity">
+                      <div className="absolute bottom-4 left-4 right-4 text-white">
+                        <div className="text-xl font-bold drop-shadow-lg">{personal.name}</div>
+                        <div className="text-sm opacity-95 drop-shadow-lg">Senior IT Product Manager</div>
+                        <div className="text-xs opacity-80 mt-1">15+ Years Digital Transformation</div>
+                      </div>
                     </div>
                   </div>
                   
