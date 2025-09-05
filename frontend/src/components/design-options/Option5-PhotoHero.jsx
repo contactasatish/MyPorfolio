@@ -146,13 +146,13 @@ const PhotoHeroPortfolio = ({ portfolioData }) => {
               </div>
 
               {/* Stats */}
-              <div className="grid grid-cols-2 gap-8 pt-8">
+              <div ref={heroStatsRef} className="grid grid-cols-2 gap-8 pt-8">
                 <div>
-                  <div className="text-4xl font-bold text-gray-900 mb-2">+15</div>
+                  <div className="text-4xl font-bold text-gray-900 mb-2">+{heroYears}</div>
                   <div className="text-gray-600">Years Experience</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold text-gray-900 mb-2">572</div>
+                  <div className="text-4xl font-bold text-gray-900 mb-2">{heroProjects}</div>
                   <div className="text-gray-600">Projects Done</div>
                 </div>
               </div>
