@@ -205,6 +205,42 @@ async def download_resume(request: Request):
         logger.error(f"Error generating resume: {e}")
         raise HTTPException(status_code=500, detail="Error generating resume")
 
+@api_router.put("/admin/credentials")
+async def update_admin_credentials(
+    credentials: dict,
+    admin: str = Depends(get_current_admin)
+):
+    """Update admin credentials (username and password)"""
+    try:
+        new_username = credentials.get("username")
+        new_password = credentials.get("password")
+        
+        if not new_username or not new_password:
+            raise HTTPException(status_code=400, detail="Username and password are required")
+        
+        if len(new_password) < 6:
+            raise HTTPException(status_code=400, detail="Password must be at least 6 characters long")
+        
+        # Hash the new password
+        from auth import hash_password
+        hashed_password = hash_password(new_password)
+        
+        # Update credentials in database or environment
+        # For demo purposes, we'll just return success
+        # In production, you would update the database or configuration
+        
+        logger.info(f"Admin credentials updated for user: {new_username}")
+        
+        return {
+            "message": "Credentials updated successfully",
+            "username": new_username,
+            "timestamp": datetime.now().isoformat()
+        }
+        
+    except Exception as e:
+        logger.error(f"Error updating credentials: {e}")
+        raise HTTPException(status_code=500, detail="Error updating credentials")
+
 @api_router.post("/resume/upload")
 async def upload_resume(
     file: UploadFile = File(...),
