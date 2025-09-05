@@ -198,6 +198,7 @@ const AdminPanel = () => {
           {[
             { id: 'dashboard', label: 'Dashboard', icon: <BarChart3 size={18} /> },
             { id: 'messages', label: 'Messages', icon: <MessageSquare size={18} /> },
+            { id: 'photo', label: 'Upload Photo', icon: <Users size={18} /> },
             { id: 'analytics', label: 'Analytics', icon: <TrendingUp size={18} /> }
           ].map((tab) => (
             <button
